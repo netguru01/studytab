@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kenshin</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+<div class="header">
+
+  <div class="logo">
+    <%= link_to 'Kenshin', root_path, class: 'logo__link' %>
+  </div>
+
+  <div class="logout">
+    <%= link_to destroy_user_session_path, class: 'logout__link', method: :delete do %>
+        <span class="fa fa-sign-out"></span>
+        Sign out
+    <% end %>
+  </div>
+
+</div>
+
+<div class="container-fluid padding-top-110">
+  <%= yield %>
+</div>
+
+<%= render 'shared/footer' %>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+admin = AdminProfile.create!(first_name: 'Onidzuka', last_name: 'Onibaku')
+student = StudentProfile.create!(first_name: 'Bruce', last_name: 'Wayne')
+employer = EmployerProfile.create!(first_name: 'Steve', last_name: 'Rogers')
+User.create!(profile_id: admin.id, profile_type: 'AdminProfile', email: 'admin@gmail.com', password: 'password', password_confirmation: 'password')
+User.create!(profile_id: student.id, profile_type: 'StudentProfile', email: 'student@gmail.com', password: 'password', password_confirmation: 'password')
+User.create!(profile_id: employer.id, profile_type: 'EmployerProfile', email: 'employer@gmail.com', password: 'password', password_confirmation: 'password')

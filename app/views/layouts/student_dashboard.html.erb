@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kenshin</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+<div class="header">
+
+  <div class="logo">
+    <%= link_to 'Kenshin', root_path, class: 'logo__link' %>
+  </div>
+
+  <div class="navigation-links">
+    <%= link_to '#', class: 'header__link' do %>
+        <span class="fa fa-home"></span>
+        Home
+    <% end %>
+    <%= link_to '#', class: 'header__link' do %>
+        <span class="fa fa-search"></span>
+        Job Board
+    <% end %>
+    <%= link_to '#', class: 'header__link' do %>
+        <span class="fa fa-file-text"></span>
+        My Application
+    <% end %>
+    <%= link_to '#', class: 'header__link' do %>
+        <span class="fa fa-plane"></span>
+        Flight / Visa Information
+    <% end %>
+    <%= link_to '#', class: 'header__link' do %>
+        <span class="fa fa-info-circle"></span>
+        SEVIS
+    <% end %>
+    <%= link_to '#', class: 'header__link' do %>
+        <span class="fa fa-wechat"></span>
+        Messages
+    <% end %>
+  </div>
+
+  <div class="logout">
+    <%= link_to destroy_user_session_path, class: 'logout__link', method: :delete do %>
+        <span class="fa fa-sign-out"></span>
+        Sign out
+    <% end %>
+  </div>
+
+</div>
+
+<div class="sub-header">
+
+  <div class="sub-header-left">
+    <%= link_to 'Questionnaire', '#', class: 'sub-header-left__link' %>
+    <%= link_to 'Resources', '#', class: 'sub-header-left__link' %>
+    <%= link_to 'Help', '#', class: 'sub-header-left__link' %>
+    <%= link_to 'F.A.Q.', '#', class: 'sub-header-left__link' %>
+  </div>
+
+  <div class="sub-header-right">
+    <span class="sub-header-right__span">Season: Work & Travel 2016</span>
+    <span>Hello, <%= link_to "#{current_user_name}", '#', class: 'sub-header-right__link' %></span>
+  </div>
+
+</div>
+
+<div class="container-fluid padding-top-110">
+  <%= yield %>
+</div>
+
+<%= render 'shared/footer' %>
+
+</body>
+</html>

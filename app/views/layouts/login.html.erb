@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kenshin</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body class="user-authentication">
+<div class="header">
+  <div class="logo">
+    <%= link_to 'Kenshin', root_path, class: 'logo__link' %>
+  </div>
+</div>
+<div class="message">
+  <% flash.each do |type, message| %>
+      <%= content_tag :span, message, class: "message__#{type}" %>
+  <% end %>
+</div>
+<%= yield %>
+<%= render 'shared/footer' %>
+</body>
+</html>

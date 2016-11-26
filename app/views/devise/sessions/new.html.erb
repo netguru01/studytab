@@ -1,0 +1,27 @@
+<% provide(:login, 'Continue') %>
+<div class="login-form-wrapper">
+  <h6 class="login-form-wrapper__header">Welcome! Please sign in.</h6>
+  <div class="login-form">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+      <div class="text-field">
+        <%= f.email_field :email, placeholder: 'E-mail address', class: 'text-field__input' %>
+      </div>
+      <div class="text-field">
+        <%= f.password_field :password, placeholder: 'Password', class: 'text-field__input' %>
+      </div>
+      <div class="button">
+        <%= f.submit yield(:login), class: 'button__submit-btn button--color-black' %>
+      </div>
+
+    <% end %>
+  </div>
+  <div class="password-reset">
+    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+        <%= link_to new_password_path(resource_name), class: 'password-reset__link' do %>
+            <span class="fa fa-lock"></span>
+            Forgot password?
+        <% end %>
+    <% end -%>
+  </div>
+</div>

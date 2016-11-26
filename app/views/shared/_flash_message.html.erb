@@ -1,0 +1,5 @@
+<div class="message">
+  <% flash.each do |type, message| %>
+      <%= content_tag :span, message, class: "message__#{type}" %>
+  <% end %>
+</div>

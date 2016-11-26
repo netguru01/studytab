@@ -1,0 +1,27 @@
+<% provide(:button, 'Change password') %>
+<div class="login-form-wrapper">
+  <h6 class="login-form-wrapper__header">Change your password</h6>
+  <div class="login-form">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+        <%= f.hidden_field :reset_password_token %>
+
+        <div class="text-field">
+          <%= render 'shared/field_errors', field_name: :password, object: resource %>
+          <%= f.password_field :password, placeholder: 'New password', class: 'text-field__input' %>
+        </div>
+        <div class="text-field">
+          <%= f.password_field :password_confirmation, placeholder: 'Password confirmation', class: 'text-field__input' %>
+        </div>
+        <div class="button">
+          <%= f.submit yield(:button), class: 'button__submit-btn button--color-black' %>
+        </div>
+
+    <% end %>
+  </div>
+  <div class="password-reset">
+    <%= link_to root_path, class: 'password-reset__link' do %>
+        <span class="fa fa-home"></span>
+        Home
+    <% end %>
+  </div>
+</div>

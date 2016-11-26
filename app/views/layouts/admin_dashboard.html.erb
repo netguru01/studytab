@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kenshin</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+
+<div class="header">
+
+  <div class="logo">
+    <%= link_to 'Kenshin', root_path, class: 'logo__link' %>
+  </div>
+
+  <div class="navigation-links">
+    <%= link_to '#', class: 'header__link' do %>
+        <span class="fa fa-pie-chart"></span>
+        Charts
+    <% end %>
+    <%= link_to '#', class: 'header__link' do %>
+        <span class="fa fa-dashboard"></span>
+        Dashboard
+    <% end %>
+  </div>
+
+  <div class="search">
+    <%= form_tag 'some_path' do %>
+        <%= text_field_tag :search, nil, placeholder: 'Search for students', class: 'search__input' %>
+        <%= button_tag type: 'submit', class: 'search_button' do %>
+          <span class="fa fa-search fa-lg"></span>
+        <% end %>
+    <% end %>
+  </div>
+
+  <div class="logout">
+    <%= link_to destroy_user_session_path, class: 'logout__link', method: :delete do %>
+      <span class="fa fa-sign-out"></span>
+      Sign out
+    <% end %>
+  </div>
+
+</div>
+
+<div class="sub-header">
+
+  <div class="sub-header-left">
+    <%= link_to 'Programs', programs_path, class: 'sub-header-left__link' %>
+  </div>
+
+  <div class="sub-header-right">
+    <span>Hello, <%= link_to "#{current_user_name}", '#', class: 'sub-header-right__link' %></span>
+  </div>
+
+</div>
+
+<div class="container-fluid padding-top-110">
+  <%= yield %>
+</div>
+<%= render 'shared/footer' %>
+
+</body>
+</html>

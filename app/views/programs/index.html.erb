@@ -1,0 +1,26 @@
+<%= link_to 'new program', new_program_path, class: '' %>
+
+<% if @programs.any? %>
+<table class="table table-bordered">
+
+    <tr>
+      <th>Title</th>
+      <th>State date</th>
+      <th>End date</th>
+      <th>Actions</th>
+    </tr>
+
+  <% @programs.each do |program| %>
+    <tr>
+      <td><%= link_to program.title, program_path(program), class:'' %></td>
+      <td><%= program.start_date.strftime("%B %d, %Y") %></td>
+      <td><%= program.end_date.strftime("%B %d, %Y") %></td>
+      <td>
+        <%= link_to 'edit', edit_program_path(program), class: '' %>
+        <%= link_to 'remove', program_path(program), method: :delete, data: {confirm: 'Are you sure?' }, class: '' %>
+      </td>
+    </tr>
+  <% end %>
+
+</table>
+<% end %>

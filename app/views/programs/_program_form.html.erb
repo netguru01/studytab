@@ -1,0 +1,22 @@
+<%= form_for @program, html: {class: ''} do |f| %>
+
+    <div class="form-row">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+
+    <div class="form-row">
+      <%= f.label :start_date %>
+      <%= f.date_select :start_date  %>
+    </div>
+
+    <div class="form-row">
+      <%= f.label :end_date %>
+      <%= f.date_select :end_date  %>
+    </div>
+
+    <div class="form-button">
+      <%= f.submit(yield(:create)) %>
+    </div>
+
+<% end %>
